@@ -1076,11 +1076,11 @@ Retorne apenas o JSON:
     });
   }
 
-  const seedSummary = await seedInitialEventCatalog();
-  console.log(`Seed inicial: ${seedSummary.seededCount} eventos salvos em ${seedSummary.batches} lotes.`);
-
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Servidor VAICE + Event Aggregator rodando em http://localhost:${PORT}`);
+    seedInitialEventCatalog()
+      .then((seedSummary) => console.log(`Seed inicial: ${seedSummary.seededCount} eventos salvos em ${seedSummary.batches} lotes.`))
+      .catch((err) => console.error("Erro no seed inicial:", err?.message || err));
   });
 }
 
