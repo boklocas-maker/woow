@@ -536,8 +536,6 @@ async function searchAndExtractWithOpenAI(
                         price: { type: "string" },
                         organizer: { type: "string" },
                         sourceUrl: { type: "string" },
-                        externalId: { type: "string" },
-                        fonte: { type: "string" },
                       },
                     },
                   },
